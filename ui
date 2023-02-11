@@ -1,0 +1,44 @@
+from tkinter import *
+windows =Tk()
+windows.title("Soil predictor")
+windows.geometry('500x300')
+label1=Label(windows,text='Enter Temperature :',fg='blue',font=('Arial',14))
+label1.grid(row=0,column=0,padx=5,pady=10)
+
+# label for rain
+label1=Label(windows,text='Enter Rain in mm :',fg='blue',font=('Arial',14))
+label1.grid(row=1,column=0,padx=5,pady=10)
+
+#  label for ph
+label1=Label(windows,text='Enter ph :',fg='blue',font=('Arial',14))
+label1.grid(row=2,column=0,padx=5,pady=10)
+
+temp=DoubleVar()
+rain=DoubleVar()
+ph=DoubleVar()
+# Entry for temp
+textbox1=Entry(windows,textvariable=temp,fg='blue',font=('Arial',14))
+textbox1.grid(row=0,column=1)
+# Entry for rain
+textbox1=Entry(windows,textvariable=rain,fg='blue',font=('Arial',14))
+textbox1.grid(row=1,column=1)
+# Entry for ph
+textbox1=Entry(windows,textvariable=ph,fg='blue',font=('Arial',14))
+textbox1.grid(row=2,column=1)
+
+# function to calculate the result
+def result():
+
+    area=ph.get()+temp.get()
+    emptylabel.config(text='Crop :'+str(area))
+ 
+
+
+
+button1=Button(windows,text='find',command=result,fg='blue',font=('Arial',14))
+button1.grid(row=4,column=1,sticky=W)
+#  area to print 
+emptylabel=Label(windows,fg='green',font=('Times',16,'bold italic'))
+emptylabel.grid(row=6,column=1,sticky=W,pady=15)
+
+windows.mainloop()
